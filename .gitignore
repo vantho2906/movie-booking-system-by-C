@@ -1,4 +1,4 @@
 *.exe
-*.vscode
-try1.c
-try.c
+/.vscode
+/try1.c
+/try.c
