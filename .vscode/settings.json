@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "showdate.h": "c",
+        "showmovie.h": "c",
+        "showticket.h": "c",
+        "accountbalance.h": "c",
+        "login_register.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
