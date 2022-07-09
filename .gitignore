@@ -1,3 +1,4 @@
-!try.c
-!try1.c
-!.vscode
+*.exe
+*.vscode
+try1.c
+try.c
