@@ -1,0 +1,5 @@
+Doraemon,92000,2
+Minion,110000,3
+Dr Strange,89000,4
+Conan,50000,5
+Jurassic Park,90001,1

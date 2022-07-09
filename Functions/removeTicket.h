@@ -4,7 +4,7 @@
 void removing(int number) {
     int day,month,year;
     char filepath[100];
-    sprintf(filepath,"./ticketShow/%s.txt",username);
+    sprintf(filepath,"../txtFiles/ticketShow/%s.txt",username);
     FILE* file = fopen(filepath,"r");
     int count=0,i=0;
     char takeData[100][100];
@@ -66,7 +66,7 @@ void removing(int number) {
         balance+= tickerPrice/2;
         printf("Your balance now is %d\n",balance);
         saveToFile();
-        sprintf(filepath,"./movieName/%s/%d-%d-%d/",movieName,day,month,year);
+        sprintf(filepath,"../txtFiles/movieName/%s/%d-%d-%d/",movieName,day,month,year);
         if(!strcmp(timer,"7:30")) strcat(filepath,"1.txt");
         else if(!strcmp(timer,"10:30")) strcat(filepath,"2.txt");
         else if(!strcmp(timer,"15:30")) strcat(filepath,"3.txt");
@@ -91,7 +91,7 @@ void removing(int number) {
 }
 void removeTicket() {
     char usernameFile[100];
-    sprintf(usernameFile,"./ticketShow/%s.txt",username);
+    sprintf(usernameFile,"../txtFiles/ticketShow/%s.txt",username);
     FILE*file;
     if(!(file=fopen(usernameFile,"r"))) {
         printf("No data.\n");

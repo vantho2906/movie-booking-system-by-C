@@ -4,7 +4,9 @@
         "showmovie.h": "c",
         "showticket.h": "c",
         "accountbalance.h": "c",
-        "login_register.h": "c"
+        "login_register.h": "c",
+        "admin.h": "c",
+        "removeticket.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -1,10 +1,10 @@
-#include"library.h"
-#include"login_register.h"
-#include"showTicket.h"
-#include"accountBalance.h"
-#include"showDate.h"
-#include"removeTicket.h"
-#include"admin.h"
+#include"../Functions/login_register.h"
+#include"../Functions/accountBalance.h"
+#include"../Functions/admin.h"
+#include"../Functions/removeTicket.h"
+#include"../Functions/showDate.h"
+#include"../Functions/showMovie.h"
+#include"../Functions/showTicket.h"
 void mainMenu() {
     printf("------------Welcome to CGV cinema------------\n");
     printf("1-User\n");

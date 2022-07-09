@@ -3,7 +3,7 @@
 #include"login_register.h"
 
 void saveToFile() {
-    FILE*file = fopen("./user.txt","r");
+    FILE*file = fopen("../txtFiles/user.txt","r");
     char buffer[1000];
     char *line;
     char save[100][1000];
@@ -17,7 +17,7 @@ void saveToFile() {
         }
     }
     fclose(file);
-    file = fopen("./user.txt","w");
+    file = fopen("../txtFiles/user.txt","w");
     for(i=0;i<=count;i++) {
         fprintf(file,"%s",save[i]);
     }

@@ -8,10 +8,10 @@ void movieProcess(char movie[],int pricee,int hallNum) {
     char folderName[100];
     char hour[100];
     char usernameFile[100];
-    sprintf(folderName,"./movieName/%s",movie);
+    sprintf(folderName,"../txtFiles/movieName/%s",movie);
     mkdir(folderName);
-    sprintf(folderName,"./movieName/%s/%d-%d-%d",movie,day,month,year);
-    sprintf(fileName,"./movieName/%s/%d-%d-%d/",movie,day,month,year);
+    sprintf(folderName,"../txtFiles/movieName/%s/%d-%d-%d",movie,day,month,year);
+    sprintf(fileName,"../txtFiles/movieName/%s/%d-%d-%d/",movie,day,month,year);
     mkdir(folderName);
     FILE *file;
     printf("1-7:30\n");
@@ -101,7 +101,7 @@ void movieProcess(char movie[],int pricee,int hallNum) {
     char date[100];
     int num;
     FILE* file2;
-    sprintf(usernameFile,"./ticketShow/%s.txt",username);
+    sprintf(usernameFile,"../txtFiles/ticketShow/%s.txt",username);
     file2 =fopen(usernameFile,"a");
     int IDlist[6],demm=0;
     for(i=1;i<=numberOfTickets;i++) {
@@ -182,7 +182,7 @@ void movieProcess(char movie[],int pricee,int hallNum) {
 
 }
 void takeMovie() {
-    FILE* file=fopen("./listOfMovie/movie.txt","r");
+    FILE* file=fopen("../txtFiles/listOfMovie/movie.txt","r");
     countMovie=0;
     while(fgets(buffer,1000,file)) {
         countMovie++;

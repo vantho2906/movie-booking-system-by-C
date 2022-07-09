@@ -3,7 +3,7 @@
 #include"login_register.h"
 void showTicket() {
     char usernameFile[100];
-    sprintf(usernameFile,"./ticketShow/%s.txt",username);
+    sprintf(usernameFile,"../txtFiles/ticketShow/%s.txt",username);
     FILE*file;
     if(!(file=fopen(usernameFile,"r"))) {
         printf("No data.\n");

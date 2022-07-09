@@ -4,7 +4,7 @@
 void admin();
 void checkPass() {
     char pass[100];
-    FILE*file = fopen("./adminPassword.txt","r");
+    FILE*file = fopen("../txtFiles/adminPassword.txt","r");
     fgets(adminPassword,100,file);
     do {
         printf("Enter the password to continue: ");
@@ -36,7 +36,7 @@ void addMovie() {
         if(check) printf("Invalid input.Please enter again!!\n");
         else break;
     }while(1);
-    FILE* file=fopen("./listOfMovie/movie.txt","r");
+    FILE* file=fopen("../txtFiles/listOfMovie/movie.txt","r");
     i=0;
     char save[100][100];
     while(fgets(buffer,1000,file)) {
@@ -44,14 +44,14 @@ void addMovie() {
         strcpy(save[i],buffer);
     }
     fclose(file);
-    file=fopen("./hallNumber.txt","r");
+    file=fopen("../txtFiles/hallNumber.txt","r");
     fgets(buffer,1000,file);
     fclose(file);
     int numberHall = atoi(buffer)+1;
-    file = fopen("./hallNumber.txt","w");
+    file = fopen("../txtFiles/hallNumber.txt","w");
     fprintf(file,"%d",numberHall);
     fclose(file);
-    file=fopen("./listOfMovie/movie.txt","w");
+    file=fopen("../txtFiles/listOfMovie/movie.txt","w");
     for(j=1;j<=i;j++) {
         fprintf(file,"%s",save[j]);
     }
@@ -78,7 +78,7 @@ void addMovie() {
 void deleteMovie() {
     checkPass();
     char prices[100];
-    FILE* file=fopen("./listOfMovie/movie.txt","r");
+    FILE* file=fopen("../txtFiles/listOfMovie/movie.txt","r");
     char save[100][100];
     char line[100][100];
     i=0;
@@ -112,7 +112,7 @@ void deleteMovie() {
         if(checkkk)break;
         else printf("Invalid input. Please enter again!\n");
     } while(1);
-    file=fopen("./listOfMovie/movie.txt","w");
+    file=fopen("../txtFiles/listOfMovie/movie.txt","w");
     for(j=1;j<=i;j++) {
         if(index!=j) {
             fprintf(file,"%s",line[j]);
@@ -140,8 +140,10 @@ void deleteMovie() {
 void editPrice() {
     checkPass();
     char prices[100];
-    FILE* file=fopen("./listOfMovie/movie.txt","r");
+    FILE* file=fopen("../txtFiles/listOfMovie/movie.txt","r");
     char save[100][100];
+    int price[100];
+    int hall[100];
     char line[100][100];
     i=0;
     int index;
@@ -150,6 +152,10 @@ void editPrice() {
         strcpy(line[i],buffer);
         char *a=strtok(buffer,",");
         strcpy(save[i],a);
+        a=strtok(NULL,",");
+        price[i]=atoi(a);
+        a=strtok(NULL,",");
+        hall[i]=atoi(a);
     }
     fclose(file);
     for(j=1;j<=i;j++) {
@@ -174,15 +180,14 @@ void editPrice() {
         if(checkkk)break;
         else printf("Invalid input. Please enter again!\n");
     } while(1);
+    printf("The old price of ticket is %d\n",price[index]);
     do {
         printf("Enter new price of ticket: ");
         gets(prices);
         fflush(stdin);
-        printf("strlen is %d\n",strlen(prices));
         int check=0;
         for(j=0;j<prices[strlen(prices)];j++) {
             if(prices[j]-'0'<0||prices[j]-'0'>9) {
-                printf("ahihi\n");
                 check=1;
                 break;
             }
@@ -190,14 +195,13 @@ void editPrice() {
         if(check) printf("Invalid input.Please enter again!!\n");
         else break;
     }while(1);
-    file=fopen("./listOfMovie/movie.txt","w");
-    printf("i is %d\n",i);
+    file=fopen("../txtFiles/listOfMovie/movie.txt","w");
     for(j=1;j<=i;j++) {
         if(index!=j) {
             fprintf(file,"%s",line[j]);
         }
     }
-    fprintf(file,"%s,%s\n",save[index],prices);
+    fprintf(file,"%s,%s,%d\n",save[index],prices,hall[index]);
     fclose(file);
     printf("Edit successfully!!\n");
     printf("1-Continue to edit price of ticket\n");
@@ -221,7 +225,7 @@ void changePassword() {
     checkPass();
     printf("Enter new password: ");
     gets(adminPassword);
-    FILE*file = fopen("./adminPassword.txt","w");
+    FILE*file = fopen("../txtFiles/adminPassword.txt","w");
     fprintf(file,"%s",adminPassword);
     fclose(file);
     printf("Change successfully!!\n");

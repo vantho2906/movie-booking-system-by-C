@@ -23,7 +23,9 @@ int countMovie;
 char content[100][100];
 int yearCur,monCur,dayCur;
 int accountCheck(char username[],char password[]) {
-    FILE *file = fopen("user.txt","r");
+    FILE *file = fopen("../txtFiles/user.txt","r");
+    if(file!=NULL) printf("ahihi\n");
+    else printf("fail\n");
     while(fgets(buffer,1000,file)) {
         char* usernameList = strtok(buffer, ",");
         if(!strcmp(usernameList,username)) {
@@ -43,7 +45,7 @@ int accountCheck(char username[],char password[]) {
 }
 int usernameCheckExist(char username[]) {
     char buffer[1000];
-    FILE *file = fopen("user.txt","r");
+    FILE *file = fopen("../txtFiles/user.txt","r");
     while(fgets(buffer,1000,file)) {
         char* usernameList = strtok(buffer, ",");
         if(!strcmp(usernameList,username)) {
@@ -132,7 +134,7 @@ void Register() {
         else break;
     }while(1);
     FILE *file;
-    file = fopen("./user.txt","a");
+    file = fopen("../txtFiles/user.txt","a");
     balance=0;
     fprintf(file,"%s,%s,%s,%d\n",username,password,fullname,balance);
     fclose(file);
