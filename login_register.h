@@ -3,7 +3,7 @@
 
 int i,j;
 char adminPassword[100];
-int countTickets;
+int countTickets,hallNumber[100];
 int priceOfTicket[100];
 char fullname[100];
 char username[100];

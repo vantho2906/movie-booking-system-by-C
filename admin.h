@@ -44,11 +44,18 @@ void addMovie() {
         strcpy(save[i],buffer);
     }
     fclose(file);
+    file=fopen("./hallNumber.txt","r");
+    fgets(buffer,1000,file);
+    fclose(file);
+    int numberHall = atoi(buffer)+1;
+    file = fopen("./hallNumber.txt","w");
+    fprintf(file,"%d",numberHall);
+    fclose(file);
     file=fopen("./listOfMovie/movie.txt","w");
     for(j=1;j<=i;j++) {
         fprintf(file,"%s",save[j]);
     }
-    fprintf(file,"%s,%s\n",nameMovie,prices);
+    fprintf(file,"%s,%s,%d\n",nameMovie,prices,numberHall);
     fclose(file);
     printf("Add successfully!!\n");
     printf("1-Continue to add\n");

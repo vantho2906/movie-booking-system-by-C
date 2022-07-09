@@ -1,4 +1,5 @@
-Dr Strange,110000
-Jurassic Park,78000
-Doraemon,101000
-Minion,88000
+Jurassic Park,78000,1
+Doraemon,101000,2
+Minion,88000,3
+Dr Strange,98000,4
+Conan,50000,8

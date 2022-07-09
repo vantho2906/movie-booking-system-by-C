@@ -86,7 +86,7 @@ void showDate() {
         printf("%10s","");
     }
     j=startDayof1-1;
-    for(int i=1;i<=mDays[timeinfo->tm_mon];i++) {
+    for(i=1;i<=mDays[timeinfo->tm_mon];i++) {
         j++;
         if(j>6){j=0;printf("\n");}
         printf("%10d",i);

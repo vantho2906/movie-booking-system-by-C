@@ -1,7 +1,7 @@
 #pragma once
 #include"library.h"
 #include"login_register.h"
-void movieProcess(char movie[],int pricee) {
+void movieProcess(char movie[],int pricee,int hallNum) {
     int i,j;
     int check[1000]= {0};
     char fileName[100];
@@ -135,7 +135,7 @@ void movieProcess(char movie[],int pricee) {
         num = rand()%100000+100000;
         demm++; IDlist[demm]=num;
         sprintf(date,"%d-%d-%d",day,month,year);
-        fprintf(file2,"%d,%s,%s,%s,%s,%s,%d\n",num,movie,date,hour,choice,choose,pricee);
+        fprintf(file2,"%d,%s,%s,%s,%d,%s,%d\n",num,movie,date,hour,hallNum,choose,pricee);
     }
     fclose(file);
     fclose(file2);
@@ -191,6 +191,8 @@ void takeMovie() {
         strcpy(content[countMovie],a);
         a=strtok(NULL,",");
         priceOfTicket[countMovie]= atoi(a);
+        a=strtok(NULL,",");
+        hallNumber[countMovie] = atoi(a);
     }
     fclose(file);
 }
@@ -213,7 +215,7 @@ void showMovie() {
             sprintf(a,"%d",i);
             if(!strcmp(choice,a)){
                 checkkk=1;
-                movieProcess(content[i],priceOfTicket[i]);
+                movieProcess(content[i],priceOfTicket[i],hallNumber[i]);
                 break;
             } 
         }

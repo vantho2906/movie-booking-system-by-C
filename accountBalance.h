@@ -18,7 +18,6 @@ void saveToFile() {
     }
     fclose(file);
     file = fopen("./user.txt","w");
-    int i;
     for(i=0;i<=count;i++) {
         fprintf(file,"%s",save[i]);
     }
